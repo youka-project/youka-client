@@ -1,5 +1,6 @@
 import './plugins';
 import Backbone from 'backbone';
+import $ from 'jquery';
 
 import Application from './application/application';
 
@@ -10,7 +11,7 @@ import FlashesService from './flashes/service';
 import IndexRouter from './index/router';
 // import ColorsRouter from './colors/router';
 // import BooksRouter from './books/router';
-import ThingsRouter from './things/router';
+import UsersRouter from './users/router';
 
 let app = new Application();
 
@@ -38,8 +39,12 @@ app.index = new IndexRouter({
 //   container: app.layout.content
 // });
 
-app.things = new ThingsRouter({
+app.users = new UsersRouter({
   container: app.layout.content
+});
+
+$(document).ajaxSend(function(event, request) {
+   request.setRequestHeader('access_token', ''); //todo: use GET/POST parameter
 });
 
 Backbone.history.start();

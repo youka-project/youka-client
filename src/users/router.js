@@ -11,21 +11,21 @@ export default Router.extend({
     this.container = options.container;
 
     Radio.command('header', 'add', {
-      name: 'Things',
-      path: 'things',
+      name: 'Users',
+      path: 'users',
       type: 'primary'
     });
   },
 
   onBeforeEnter() {
-    Radio.command('header', 'activate', { path: 'things' });
+    Radio.command('header', 'activate', { path: 'users' });
   },
 
   routes: {
-    'things'          : 'index',
-    'things/new'      : 'create',
-    'things/:id'      : 'show',
-    'things/:id/edit' : 'edit'
+    'users'          : 'index',
+    'users/new'      : 'create',
+    'users/:id'      : 'show',
+    'users/:id/edit' : 'edit'
   },
 
   index() {

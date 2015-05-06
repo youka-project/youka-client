@@ -6,10 +6,10 @@ import template from './layout-template.hbs';
 
 export default LayoutView.extend({
   template: template,
-  className: 'things things--index container',
+  className: 'users users--index container',
 
   regions: {
-    list: '.things__list'
+    list: '.users__list'
   },
 
   initialize(options) {

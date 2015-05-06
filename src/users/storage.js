@@ -2,9 +2,9 @@ import Storage from 'backbone.storage';
 import Model from './model';
 import Collection from './collection';
 
-var ThingsStorage = Storage.extend({
+var UsersStorage = Storage.extend({
   model: Model,
   collection: Collection
 });
 
-export default new ThingsStorage();
+export default new UsersStorage();
