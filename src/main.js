@@ -43,8 +43,14 @@ app.users = new UsersRouter({
   container: app.layout.content
 });
 
-$(document).ajaxSend(function(event, request) {
-   request.setRequestHeader('access_token', ''); //todo: use GET/POST parameter
+$.ajaxPrefilter(function(options, originalOptions) {
+
+	if (originalOptions.type !== 'POST' || options.type !== 'POST') {
+    	options.data = 'access_token=';
+    	//'access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1NTRhODlmYzgzNGMwMTU0MDNjNjkyZmYiLCJpYXQiOjE0MzA5NDg0MjJ9.I10H8txUY0c-ncN6cuYLKndoCOHxzLl3cDuMAsjMGb4';
+    } else { //todo ; to test
+    	options.data = $.extend(originalOptions.data, { access_token : '' });
+    }
 });
 
 Backbone.history.start();
