@@ -37,7 +37,7 @@ export default Service.extend({
   requestLogin(credentials, done) {
 
     $.post('/auth/local', credentials)
-      .done( (data) => {
+      .done( data => {
         if (data.token && data.token !== '') {
           this.onLoginSuccess(data.token);
           done(null);
@@ -46,7 +46,7 @@ export default Service.extend({
           done('Token error.');
         }
       }.bind(this))
-      .fail( (data) => {
+      .fail( data => {
         done(data.responseJSON.message);
       })
       .always( () => { 
@@ -57,19 +57,17 @@ export default Service.extend({
   onLoginSuccess(token) {
     this.token = token;
 
-    $.ajaxPrefilter( (options) => {
-  
-      if (!options.data || options.data === '') {
-        options.data = 'access_token=' + token;
-      } else {
-        options.data = options.data + '&access_token=' + token;
-      }
+    $.ajaxPrefilter( (options, originalOptions) => {
 
-      // if (originalOptions.type !== 'post' || options.type !== 'post') {
-     //   options.data = 'access_token=';
-     //  } else { //todo ; to test
-     //   //options.data = $.extend(originalOptions.data, { access_token : '' });
-     //  }
+      if (originalOptions.type === 'GET' || options.type === 'GET') {
+        if (!options.data || options.data === '') {
+          options.data = 'access_token=' + token;
+        } else {
+          options.data = options.data + '&access_token=' + token;
+        }
+      } else {
+        options.data = JSON.stringify($.extend(JSON.parse(originalOptions.data), { access_token : token }));
+      }
     });
   },
 

@@ -25,9 +25,7 @@ export default View.extend({
   handleLoginSubmit(e) {
   	e.preventDefault();
 
-    var credentials = Syphon.serialize(this);
-
-    Radio.command('auth', 'login', credentials, this.onLoginResult.bind(this));
+    Radio.command('auth', 'login', Syphon.serialize(this), this.onLoginResult.bind(this));
 
     return false;
   },

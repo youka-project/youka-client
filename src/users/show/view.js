@@ -6,7 +6,7 @@ import template from './template.hbs';
 
 export default View.extend({
   template: template,
-  className: 'things things--show container',
+  className: 'users users--show container',
 
   initialize(options) {
     this.model = options.model;
@@ -20,17 +20,11 @@ export default View.extend({
   },
 
   events: {
-    'click .things__toggle' : 'handleToggle',
-    'click .things__destroy' : 'handleDestroy'
+    'click .users__destroy' : 'handleDestroy'
   },
 
   modelEvents: {
     'all': 'render'
-  },
-
-  handleToggle() {
-    this.model.set('active', !this.model.get('active'));
-    this.model.save().fail(this.handleToggleFailure);
   },
 
   handleToggleFailure() {
@@ -40,7 +34,7 @@ export default View.extend({
   handleDestroy() {
     var self = this;
     Radio.request('modal', 'confirm', {
-      title : 'Confirm Thing Destruction',
+      title : 'Confirm user destruction',
       text  : 'Are you sure you want to destroy ' + this.model.get('name') + '?'
     }).then(function() {
       nprogress.start();
@@ -51,7 +45,7 @@ export default View.extend({
   },
 
   handleDestroySuccess() {
-    Backbone.history.navigate('things', { trigger: true });
+    Backbone.history.navigate('users', { trigger: true });
     Radio.command('flashes', 'add', {
       timeout : 5000,
       type    : 'info',

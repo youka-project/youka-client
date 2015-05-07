@@ -4,7 +4,7 @@ export default Model.extend({
   urlRoot: '/api/users',
 
   defaults: {
-    active: false
+    // active: false
   },
 
   validate(attrs) {
