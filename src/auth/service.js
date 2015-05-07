@@ -14,8 +14,13 @@ export default Service.extend({
   onStart() {
 
     this.channel.comply({
-      login    : this.onLogin
+      login        : this.onLogin
     }, this);
+
+    this.channel.reply({
+      isLoggedIn   : this.isLoggedIn
+    }, this);
+
   },
 
   onLogin(credentials, done) {
@@ -32,7 +37,7 @@ export default Service.extend({
   requestLogin(credentials, done) {
 
     $.post('/auth/local', credentials)
-      .done(function(data) {
+      .done( (data) => {
         if (data.token && data.token !== '') {
           this.onLoginSuccess(data.token);
           done(null);
@@ -41,10 +46,10 @@ export default Service.extend({
           done('Token error.');
         }
       }.bind(this))
-      .fail(function(data) {
+      .fail( (data) => {
         done(data.responseJSON.message);
       })
-      .always(function() {
+      .always( () => { 
         nprogress.done();
       });
   },
@@ -52,7 +57,7 @@ export default Service.extend({
   onLoginSuccess(token) {
     this.token = token;
 
-    $.ajaxPrefilter(function(options) {
+    $.ajaxPrefilter( (options) => {
   
       if (!options.data || options.data === '') {
         options.data = 'access_token=' + token;
@@ -66,6 +71,10 @@ export default Service.extend({
      //   //options.data = $.extend(originalOptions.data, { access_token : '' });
      //  }
     });
+  },
+
+  isLoggedIn() {
+    return (this.token !== null && this.token !== '');
   }
 
 });

@@ -11,7 +11,10 @@ export default View.extend({
 
   templateHelpers() {
     return {
-      errors: this.errors
+      errors: this.errors,
+      isLoggedIn: () => {
+      	return Radio.request('auth', 'isLoggedIn');
+      }
     };
   },
 
@@ -32,7 +35,7 @@ export default View.extend({
   onLoginResult(err) {
   	if (err) {
   		this.errors.push(err);
-      	this.render();
+		this.render();
   	} else {
   		Backbone.history.navigate('users', { trigger: true });
   	}
