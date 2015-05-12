@@ -94,6 +94,13 @@ gulp.task('build', [
   'test'
 ]);
 
+gulp.task('build-no-test', [
+  'clean',
+  'html',
+  'styles',
+  'scripts'
+]);
+
 gulp.task('test', [
   'jshint',
   'mocha'
