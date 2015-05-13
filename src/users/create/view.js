@@ -7,7 +7,7 @@ import storage from '../storage';
 
 export default View.extend({
   template: template,
-  className: 'things things--create container',
+  className: 'users users--create container',
 
   behaviors: {
     form: { behaviorClass: FormBehavior }
@@ -33,7 +33,7 @@ export default View.extend({
       nprogress.start();
       this.model.set(this.form);
       storage.save(this.model).then(() => {
-        Backbone.history.navigate('things', { trigger: true });
+        Backbone.history.navigate('users', { trigger: true });
       });
     }
   }
