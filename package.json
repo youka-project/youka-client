@@ -1,7 +1,7 @@
 {
-  "name": "marionette-wires",
+  "name": "youka-client",
   "version": "0.0.0",
-  "description": "Starter kit for Marionette.js Applications using Browserify",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "gulp build && node server",
