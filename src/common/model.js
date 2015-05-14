@@ -2,6 +2,7 @@ import Backbone from 'backbone';
 import Radio from 'backbone.radio';
 
 export default Backbone.Model.extend({
+  idAttribute: '_id',
   constructor() {
     Backbone.Model.apply(this, arguments);
     this.on('request', this.handleRequest);
