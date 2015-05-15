@@ -9,9 +9,8 @@ import FlashesService from './flashes/service';
 import AuthService from './auth/service';
 
 import IndexRouter from './index/router';
-// import ColorsRouter from './colors/router';
-// import BooksRouter from './books/router';
 import UsersRouter from './users/router';
+import FeedRouter from './feed/router';
 
 let app = new Application();
 
@@ -42,6 +41,10 @@ app.index = new IndexRouter({
 // });
 
 app.users = new UsersRouter({
+  container: app.layout.content
+});
+
+app.feed = new FeedRouter({
   container: app.layout.content
 });
 
