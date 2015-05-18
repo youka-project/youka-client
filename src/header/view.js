@@ -6,7 +6,7 @@ import template from './template.hbs';
 export default View.extend({
   template: template,
   tagName: 'nav',
-  className: 'header navbar navbar-default navbar-fixed-top',
+  className: 'bottom-bar',
 
   attributes: {
     role: 'navigation'

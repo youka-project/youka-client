@@ -1,31 +1,28 @@
-.header {
-  .navbar-brand {
-    height: @navbar-height + 1;
-    margin-bottom: -1px;
-    font-weight: 500;
+@navbar-height: 4em;
 
-    &,
-    &:hover,
-    &:active,
-    &:focus {
-      background-color: @brand-danger;
-      color: white;
-    }
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: @navbar-height;
+  background-color: #ddd;
 
-    span {
-      font-weight: 200;
-    }
-  }
+  ul {
+    height: @navbar-height;
+    position: relative;
+    display: table;
+    width: 100%;
 
-  .navbar-nav > .active > a {
-    &,
-    &:hover,
-    &:focus {
-      background-color: transparent;
-      color: @brand-danger;
-      border-bottom: 3px solid @brand-danger;
-      margin-bottom: -1px;
-      padding-bottom: @navbar-padding-vertical - 2px;
+    li {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+
+      &.active{
+        border-bottom: 4px solid @primary-color;
+      }
     }
   }
 }
