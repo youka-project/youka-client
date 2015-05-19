@@ -33,7 +33,7 @@ export default View.extend({
       nprogress.start();
       this.model.set(this.form);
       storage.save(this.model).then(() => {
-        Backbone.history.navigate('users/' + this.model.id, { trigger: true });
+        Backbone.history.navigate('users/' + this.model._id, { trigger: true });
       });
     }
   }
