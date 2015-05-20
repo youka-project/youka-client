@@ -35,7 +35,7 @@ export default View.extend({
   		this.errors.push(err);
 		this.render();
   	} else {
-  		Backbone.history.navigate('users', { trigger: true });
+  		Backbone.history.navigate('feed', { trigger: true });
   	}
   }
 

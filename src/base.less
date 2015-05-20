@@ -1,10 +1,32 @@
 @brand-primary: #76DFB4;
 @brand-default: #76DFB4;
+@white: #fff;
 
 
+.btn-home {
+  background-color: @white;
+  color: @brand-primary;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 10px 0;
+  width: 148px;
 
+  &.btn-home-inversed {
+    border: 2px solid @white;
+    color: @white;
+    background: none;
+  }
+}
 
+.separator {
+  color: @white;
 
+  &:after, &:before {
+    content: ' — ';
+    color: @brand-primary;
+  }
+}
 
 /*
  *	FORM

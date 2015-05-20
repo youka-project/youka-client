@@ -6,34 +6,20 @@
   height: 100%;
   display: table;
   background-image: url(assets/images/bg_home.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
 
   &__billboard {
-    padding: (@padding-large-vertical * 6) @padding-large-horizontal;
     text-align: center;
     color: @gray;
+    display: table-cell;
+    vertical-align: middle;
 
-    h1 {
-      color: #fff;
+    img {
+      max-width: 80%;
       .animated();
       .slideInDown();
-
-      span {
-        color: white;
-        text-shadow:
-           1px  1px @brand-primary,
-           1px  0   @brand-primary,
-           1px -1px @brand-primary,
-           0   -1px @brand-primary,
-          -1px -1px @brand-primary,
-          -1px  0   @brand-primary,
-          -1px  1px @brand-primary,
-           0    1px @brand-primary;
-
-        &:not(*:root) {
-          text-shadow: none;
-          -webkit-text-stroke: 1px @brand-primary;
-        }
-      }
+      
     }
 
     p {
@@ -43,11 +29,6 @@
       font-weight: 200;
       color: #fff;
       font-size: (@font-size-base * 1.4);
-    }
-
-    a {
-      color: @brand-primary;
-      text-decoration: underline;
     }
 
     @media screen and (min-width: @screen-sm-min) {
@@ -64,8 +45,11 @@
     }
   }
   &__form {
-    width: 20em;
-    margin: auto;
-    margin-top: 5em;
+    width: 300px;
+    margin: 30px auto 0;
+
+    .btn {
+      margin-top: 1em;
+    }
   }
 }

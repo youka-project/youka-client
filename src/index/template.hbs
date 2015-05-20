@@ -1,6 +1,6 @@
 <div class="index__billboard">
   <p>Bienvenue !</p>
-  <h1>YOUKA</h1>
+  <img alt="Youka" src="assets/images/logo.png" class="logo"/>
   	{{#unless isLoggedIn}}
 		<form class="index__form form-vertical" role="form">
 			{{#if errors}}
@@ -22,8 +22,12 @@
 			</div>
 
 			<div class="form-group">
-			  <button type="submit" class="btn btn-primary">Submit</button>
+			  <button type="submit" class="btn btn-home">Connexion</button>
 			</div>
 		</form>
+		<div class="form-group">
+			<span class="separator">ou</span>
+		</div>
+		<a href="#register" class="btn btn-home btn-home-inversed">Inscription</a>
 	{{/unless}}
 </div>
