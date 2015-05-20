@@ -74,6 +74,11 @@ gulp.task('jshint', function() {
     .pipe($.jshint.reporter(stylish));
 });
 
+gulp.task('assets', function() {
+  return gulp.src('./src/assets/**/*.*')
+    .pipe(gulp.dest('./dist/assets'))
+  })
+
 var reporter = 'spec';
 
 gulp.task('mocha', ['jshint'], function() {
@@ -90,6 +95,7 @@ gulp.task('build', [
   'clean',
   'html',
   'styles',
+  'assets',
   'scripts',
   'test'
 ]);
@@ -124,6 +130,7 @@ gulp.task('watch', ['build'], function(cb) {
   gulp.watch('./test/**/*.js', ['test']);
   gulp.watch(['./src/main.less', './src/**/*.less'], ['styles']);
   gulp.watch(['./src/*.html'], ['html']);
+  gulp.watch(['./src/assets/**/*.*'], ['assets']);
 });
 
 gulp.task('default', ['watch']);
