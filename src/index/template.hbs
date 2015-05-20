@@ -1,8 +1,8 @@
 <div class="index__billboard">
+  <p>Bienvenue !</p>
   <h1>YOUKA</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
   	{{#unless isLoggedIn}}
-		<form class="things__form form-horizontal well" role="form">
+		<form class="index__form form-vertical" role="form">
 			{{#if errors}}
 				<div class="alert alert-warning">
 				  <ul>
@@ -14,22 +14,20 @@
 			{{/if}}
 
 			<div class="form-group">
-			<label class="col-sm-1 control-label" for="email">email</label>
 			<div class="col-sm-11">
-			  <input class="form-control" name="email" type="text" placeholder="" value="test@test.com">
+			  <input class="form-control" name="email" type="text" placeholder="email" value="test@test.com">
 			</div>
 			</div>
 
 			<div class="form-group">
-			<label class="col-sm-1 control-label" for="password">password</label>
 			<div class="col-sm-11">
-			  <input class="form-control" name="password" type="text" placeholder="" value="test">
+			  <input class="form-control" name="password" type="password" placeholder="mot de passe" value="test">
 			</div>
 			</div>
 
 			<div class="form-group">
 			<div class="col-sm-offset-1 col-sm-11">
-			  <button type="submit" class="btn btn-default">Submit</button>
+			  <button type="submit" class="btn btn-primary">Submit</button>
 			</div>
 			</div>
 		</form>

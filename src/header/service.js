@@ -18,7 +18,9 @@ export default Service.extend({
     this.channel.comply({
       add      : this.onAdd,
       activate : this.onActivate,
-      remove   : this.onRemove
+      remove   : this.onRemove,
+      show     : this.onShow,
+      hide     : this.onHide,
     }, this);
   },
 
@@ -35,11 +37,22 @@ export default Service.extend({
     this.collection.remove(model);
   },
 
+  onShow() {
+    this.view.$el.removeClass('hidden');
+  },
+
+  onHide() {
+    this.view.$el.addClass('hidden');
+  },
+
   onActivate(model) {
     this.collection.invoke('set', 'active', false);
     model = this.collection.findWhere(model);
     if (model) {
+      this.onShow();
       model.set('active', true);
+    } else {
+      this.onHide();
     }
   }
 });

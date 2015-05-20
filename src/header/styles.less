@@ -9,7 +9,13 @@
   height: @navbar-height;
   background-color: #ddd;
 
+  &.hidden {
+    bottom: -1 * @navbar-height;
+  }
+
   ul {
+    padding: 0;
+    margin: 0;
     height: @navbar-height;
     position: relative;
     display: table;
@@ -21,7 +27,7 @@
       vertical-align: middle;
 
       &.active{
-        border-bottom: 4px solid @primary-color;
+        border-bottom: 4px solid @brand-primary;
       }
     }
   }
