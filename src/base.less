@@ -1,5 +1,6 @@
 @brand-primary: #76DFB4;
 @brand-default: #76DFB4;
+@brand-inversed: #6f4033;
 @white: #fff;
 
 
@@ -29,7 +30,59 @@
 }
 
 /*
- *	FORM
+ *  BASE LAYOUT
+ */
+
+.content-header {
+  height: 150px;
+  background-color: @brand-primary;
+  margin-bottom: 2px;
+  text-align: center;
+  padding: 5% 0;
+
+  .content-header-title {
+    text-transform: uppercase;
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  .content-header-pic {
+
+  }
+}
+.content-body {
+  padding-bottom: 51px;
+  
+  .content-body-bar {
+    background-color: @brand-inversed;
+    color: @white;
+    height: 56px;
+    line-height: 56px;
+    padding: 0 16px;
+
+    .bar-title {
+      float: left;
+      font-size: 22px;
+      font-weight: 600;
+      text-transform: uppercase;
+      vertical-align: middle;
+    }
+    .bar-aside {
+      float: right;
+      font-size: 18px;
+      vertical-align: middle;
+    }
+  }
+}
+
+
+
+
+
+
+
+ /*
+ *  FORM
  */
 
 @brand-underline-color: #76DFB4;
