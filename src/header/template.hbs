@@ -1,6 +1,11 @@
 <ul class="nav-bar-items">
   {{#each primaryItems}}
-    <li {{#if active}}class="active"{{/if}}><a href="#{{path}}">{{name}}</a></li>
+    <li {{#if active}}class="active"{{/if}}>
+    	<a href="#{{path}}">
+    		<div class="icon icon-{{icon}}"></div>
+    		{{name}}
+    	</a>
+    </li>
   {{/each}}
 </ul>
 

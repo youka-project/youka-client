@@ -11,8 +11,16 @@ export default Router.extend({
     this.container = options.container;
 
     Radio.command('header', 'add', {
-      name: 'Users',
+      name: 'Team',
       path: 'users',
+      icon: 'comments',
+      type: 'primary'
+    });
+
+    Radio.command('header', 'add', {
+      name: 'Profil',
+      path: 'users',
+      icon: 'profile',
       type: 'primary'
     });
   },

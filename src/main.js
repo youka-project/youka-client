@@ -11,6 +11,7 @@ import AuthService from './auth/service';
 import IndexRouter from './index/router';
 import UsersRouter from './users/router';
 import FeedRouter from './feed/router';
+import StatsRouter from './stats/router';
 
 let app = new Application();
 
@@ -40,12 +41,17 @@ app.index = new IndexRouter({
 //   container: app.layout.content
 // });
 
+app.feed = new FeedRouter({
+  container: app.layout.content
+});
+
+app.stats = new StatsRouter({
+  container: app.layout.content
+});
+
 app.users = new UsersRouter({
   container: app.layout.content
 });
 
-app.feed = new FeedRouter({
-  container: app.layout.content
-});
 
 Backbone.history.start();

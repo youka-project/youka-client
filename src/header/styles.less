@@ -1,13 +1,12 @@
-@navbar-height: 4em;
-
 .bottom-bar {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   width: 100%;
+  border-top: 2px solid fade(@gray, 50%);
   height: @navbar-height;
-  background-color: #ddd;
+  background-color: @white;
 
   &.hidden {
     bottom: -1 * @navbar-height;
@@ -23,11 +22,40 @@
 
     li {
       display: table-cell;
+      position: relative;
       text-align: center;
       vertical-align: middle;
+      border-bottom: 7px solid @white;
+      color: @gray;
 
-      &.active{
-        border-bottom: 4px solid @brand-primary;
+      &.active {
+        border-color: @brand-primary;
+
+        a, .icon {
+          color: @brand-primary;
+        }
+      }
+
+      &:after {
+        display: block;
+        content: ' ';
+        width: 1px;
+        height: @navbar-height / 3 * 2;
+        background-color: fade(@gray, 50%);
+        position: absolute;
+        top: @navbar-height / 6;
+        right: 0;
+
+      }
+
+      a {
+        color: @gray;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+      
+      .icon {
+        font-size: 32px;
       }
     }
   }

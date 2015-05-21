@@ -9,19 +9,19 @@ export default Router.extend({
     this.container = options.container;
 
     Radio.command('header', 'add', {
-      name: 'Feed',
-      path: 'feed',
-      icon: 'feed',
+      name: 'Stats',
+      path: 'stats',
+      icon: 'stats',
       type: 'primary'
     });
   },
 
   onBeforeEnter() {
-    Radio.command('header', 'activate', { path: 'feed' });
+    Radio.command('header', 'activate', { path: 'stats' });
   },
 
   routes: {
-    'feed' : 'index'
+    'stats' : 'index'
   },
 
   index() {
