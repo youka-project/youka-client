@@ -2,6 +2,7 @@
 @brand-default: #76DFB4;
 @brand-inversed: #6f4033;
 @white: #fff;
+@black: #111;
 @gray: #bbb;
 @navbar-height: 72px;
 
@@ -53,7 +54,7 @@
   }
 
   .content-header-pic {
-
+    padding: 12px 0;
   }
 }
 
@@ -74,17 +75,24 @@
   .content-body-bar {
     background-color: @brand-inversed;
     color: @white;
-    height: 44px;
-    line-height: 44px;
+    height: 64px;
+    line-height: 64px;
     padding: 0 28px;
+    white-space: nowrap;
 
     .bar-title {
       float: left;
       font-size: 16px;
-      font-weight: 600;
       text-transform: uppercase;
       vertical-align: middle;
+      font-weight: 600;
     }
+
+    .bar-center {
+      text-align: center;
+      font-size: 15px;
+    }
+
     .bar-aside {
       float: right;
       font-size: 15px;
@@ -93,6 +101,21 @@
   }
 }
 
+.profile-picture {
+  display: inline-block;
+  background-position: 50% 50%;
+  background-size: cover;
+  
+  &.profile-picture-small {
+    height: 48px;
+    width: 48px;
+  }
+
+  &.profile-picture-big {
+    height: 124px;
+    width: 124px;
+  }
+}
 
 .fullpage {
   width: 100%;
@@ -100,6 +123,59 @@
   position: relative;
 }
 
+.timeline {
+  padding-top: 16px;
+  position: relative;
+
+  &:before {
+    content: ' ';
+    width: 1px;
+    height: 100%;
+    background-color: @black;
+    position: absolute;
+    left: 25px;
+    top: 36px;
+  }
+
+  .timeline-item {
+    position: relative;
+    padding: 0 16px 0 48px;
+
+    &:before {
+      content: ' ';
+      display: block;
+      background-color: fade(@brand-primary, 50%);
+      width: 20px;
+      height: 20px;
+      border-radius: 10px;
+      position: absolute;
+      left: 16px;
+      top: 12px;
+    }
+
+    &:after {
+      content: ' ';
+      display: block;
+      background-color: @black;
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      position: absolute;
+      left: 21px;
+      top: 17px;
+    }
+
+    .timeline-item-title {
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 17px;
+      font-weight: 600;
+      color: @black;
+      border-bottom: 2px solid @brand-primary;
+      margin: 8px 0;
+    }
+  }
+}
 
 
 
