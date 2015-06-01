@@ -6,14 +6,14 @@ import template from './layout-template.hbs';
 
 export default LayoutView.extend({
   template: template,
-  className: 'users users--index container',
+  className: 'users users--index fullpage',
 
   regions: {
     list: '.users__list'
   },
 
   initialize(options) {
-    this.state = { start: 0, limit: 20 };
+    this.state = { start: 0, limit: 9 };
     this.state.start = (options.page - 1) * this.state.limit;
   },
 

@@ -6,7 +6,7 @@ import template from './template.hbs';
 
 export default View.extend({
   template: template,
-  className: 'users users--show container',
+  className: 'users users--show',
 
   initialize(options) {
     this.model = options.model;

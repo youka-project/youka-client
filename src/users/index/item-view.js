@@ -4,7 +4,7 @@ import template from './item-template.hbs';
 export default ItemView.extend({
   tagName: 'a',
   template: template,
-  className: 'users__item list-group-item',
+  className: 'users__item',
 
   attributes() {
     return {
