@@ -13,14 +13,14 @@ export default Router.extend({
     Radio.command('header', 'add', {
       name: 'Team',
       path: 'users',
-      icon: 'comments',
+      icon: 'team',
       type: 'primary'
     });
 
     Radio.command('header', 'add', {
       name: 'Profil',
       path: 'users',
-      icon: 'profile',
+      icon: 'profil',
       type: 'primary'
     });
   },

@@ -11,7 +11,7 @@ export default Router.extend({
     Radio.command('header', 'add', {
       name: 'Stats',
       path: 'stats',
-      icon: 'stats',
+      icon: 'stat',
       type: 'primary'
     });
   },
