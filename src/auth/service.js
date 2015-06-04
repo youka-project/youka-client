@@ -6,6 +6,7 @@ import nprogress from 'nprogress';
 export default Service.extend({
   channelName: 'auth',
   token: null,
+  userId: null,
 
   initialize() {
     this.start();
@@ -18,7 +19,8 @@ export default Service.extend({
     }, this);
 
     this.channel.reply({
-      isLoggedIn   : this.isLoggedIn
+      isLoggedIn   : this.isLoggedIn,
+      getUserId    : this.getUserId
     }, this);
 
   },
@@ -39,7 +41,7 @@ export default Service.extend({
     $.post('/auth/local', credentials)
       .done( data => {
         if (data.token && data.token !== '') {
-          this.onLoginSuccess(data.token);
+          this.onLoginSuccess(data.token, data.id);
           done(null);
         }
         else {
@@ -54,8 +56,9 @@ export default Service.extend({
       });
   },
 
-  onLoginSuccess(token) {
+  onLoginSuccess(token, id) {
     this.token = token;
+    this.userId = id;
 
     $.ajaxPrefilter( (options, originalOptions) => {
 
@@ -73,6 +76,10 @@ export default Service.extend({
 
   isLoggedIn() {
     return (this.token !== null && this.token !== '');
+  },
+
+  getUserId() {
+    return this.userId;
   }
 
 });
