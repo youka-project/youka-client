@@ -21,6 +21,10 @@ export default ItemView.extend({
 		'click @ui.plantButton': 'showPlantTab',
 	},
 
+	onRender() {
+		this.showWaterTab();
+	},
+
 	showWaterTab() {
 		this.ui.titleBar.text('humidité');
 
