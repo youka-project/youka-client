@@ -7,6 +7,7 @@ import ModalService from './modal/service';
 import HeaderService from './header/service';
 import FlashesService from './flashes/service';
 import AuthService from './auth/service';
+import SocketService from './socket/service';
 
 import IndexRouter from './index/router';
 import UsersRouter from './users/router';
@@ -28,6 +29,8 @@ app.flashes = new FlashesService({
 });
 
 app.auth = new AuthService();
+
+app.socket = new SocketService();
 
 app.index = new IndexRouter({
   container: app.layout.content
