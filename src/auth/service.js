@@ -1,7 +1,7 @@
 import Service from '../common/service';
 import $ from 'jquery';
 import nprogress from 'nprogress';
-
+import Radio from 'backbone.radio';
 
 export default Service.extend({
   channelName: 'auth',
@@ -59,6 +59,8 @@ export default Service.extend({
   onLoginSuccess(token, id) {
     this.token = token;
     this.userId = id;
+
+    Radio.command('socket', 'register', id);
 
     $.ajaxPrefilter( (options, originalOptions) => {
 

@@ -7,15 +7,22 @@ export default Service.extend({
   socket: null,
 
   initialize() {
-    this.start();
 
-    this.socket = io.connect('http://localhost:9000');
-    console.log(this.socket);
-    this.socket.on('news', (data) => {
-      console.log(data);
-      this.socket.emit('my other event', { my: 'data' });
-    });
+    this.start();
+    this.socket = window.io.connect('http://localhost:9000');
+
+    this.channel.comply('register', this.register, this);
 
   },
+
+  register(userId) {
+
+    this.socket.emit('register', { userId });
+
+    this.socket.on('sit', (data) => {
+      console.log('sit');
+    });
+
+  }
 
 });
