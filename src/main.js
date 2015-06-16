@@ -1,5 +1,6 @@
 import './plugins';
 import Backbone from 'backbone';
+import $ from 'jquery';
 
 import Application from './application/application';
 
@@ -58,5 +59,12 @@ app.users = new UsersRouter({
   container: app.layout.content
 });
 
+$.getJSON('/config.json', function(data) {
+	const address = data.url + ':' + data.port;
+	$.getScript(address + '/socket.io/socket.io.js')
+	    .done(() => {
+			app.socket.init(address);
+	    });
+});
 
 Backbone.history.start();

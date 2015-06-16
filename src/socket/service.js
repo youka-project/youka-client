@@ -13,17 +13,20 @@ export default Service.extend({
 
   initialize(options) {
     this.container = options.container;
-    this.socket = window.io.connect('http://localhost:9000');
 
     this.start();
 
   },
 
-  onStart() {
+  onStart(options) {
 
     this.channel.comply('register', this.register, this);
 
     //this.sittingView = new SittingView();
+  },
+
+  init(uri) {
+    this.socket = window.io.connect(uri);
   },
 
   register(userId) {
