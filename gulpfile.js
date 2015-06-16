@@ -11,8 +11,6 @@ var _ = require('lodash');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
-var api = require('../youka-server/app');
-
 gulp.task('clean', function(cb) {
   del([
     'app/tmp'
@@ -67,6 +65,11 @@ gulp.task('scripts', function(cb) {
   bundle(cb, true);
 });
 
+gulp.task('scripts:no-watch', function(cb) {
+  process.env.BROWSERIFYSWAP_ENV = 'dist';
+  bundle(cb, false);
+});
+
 gulp.task('jshint', function() {
   return gulp.src(['./src/**/*.js', './test/**/*.js'])
     .pipe($.plumber())
@@ -96,15 +99,17 @@ gulp.task('build', [
   'html',
   'styles',
   'assets',
-  'scripts',
+  'scripts:no-watch',
   'test'
 ]);
 
-gulp.task('build-no-test', [
+gulp.task('build-no-watch', [
   'clean',
   'html',
   'styles',
-  'scripts'
+  'assets',
+  'scripts:no-watch',
+  'test'
 ]);
 
 gulp.task('test', [
@@ -117,7 +122,7 @@ gulp.task('watch', ['build'], function(cb) {
     server: {
       baseDir: 'dist',
       middleware: function(req, res, next) {
-        api(req, res, next);
+        require('../youka-server/app')(req, res, next);
       }
     }
   });
