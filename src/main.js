@@ -30,7 +30,9 @@ app.flashes = new FlashesService({
 
 app.auth = new AuthService();
 
-app.socket = new SocketService();
+app.socket = new SocketService({
+	container: app.layout.overlay
+});
 
 app.index = new IndexRouter({
   container: app.layout.content

@@ -61,6 +61,7 @@ export default Service.extend({
     this.userId = id;
 
     Radio.command('socket', 'register', id);
+    Radio.request('socket', 'open');
 
     $.ajaxPrefilter( (options, originalOptions) => {
 

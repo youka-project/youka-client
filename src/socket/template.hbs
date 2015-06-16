@@ -1,26 +1,28 @@
-<div class="container-fluid">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-
-    <a class="navbar-brand" href="#">YOUKA</a>
-  </div>
-
-  <div class="collapse navbar-collapse" id="navbar-collapse">
-    <ul class="nav navbar-nav">
-      {{#each primaryItems}}
-        <li {{#if active}}class="active"{{/if}}><a href="#{{path}}">{{name}}</a></li>
-      {{/each}}
-    </ul>
-
-    <ul class="nav navbar-nav navbar-right">
-      {{#each secondaryItems}}
-        <li {{#if active}}class="active"{{/if}}><a href="#{{path}}">{{name}}</a></li>
-      {{/each}}
-    </ul>
-  </div>
+<div class="socket-connect--header">
+	Est-ce bien vous ?
+</div>
+<div class="socket-connect--main">
+	<div class="secondary-message">
+		<b>Pssst !</b>
+		La plante vient de détecter une présence près des capteurs de pression.
+	</div>
+	<div class="main-message">
+		Est-ce bien vous ?
+	</div>
+</div>
+<div class="socket-connect--footer">
+	<div class="cols">
+		<div class="col-2">
+			<a href="#" class="confirm-true">
+				<i class="icon icon-valider"></i>
+				oui
+			</a>
+		</div>
+		<div class="col-2">
+			<a href="#" class="confirm-false">
+				<i class="icon icon-fermer"></i>
+				non
+			</a>
+		</div>
+	</div>
 </div>
