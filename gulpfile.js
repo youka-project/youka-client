@@ -99,7 +99,7 @@ gulp.task('build', [
   'html',
   'styles',
   'assets',
-  'scripts:no-watch',
+  'scripts',
   'test'
 ]);
 

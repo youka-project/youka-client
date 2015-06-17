@@ -60,7 +60,7 @@ export default Service.extend({
     this.token = token;
     this.userId = id;
 
-    Radio.command('socket', 'register', id);
+    Radio.command('socket', 'bindEvents', id);
 
     $.ajaxPrefilter( (options, originalOptions) => {
 
