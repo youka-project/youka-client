@@ -60,8 +60,6 @@ export default Service.extend({
     this.token = token;
     this.userId = id;
 
-    Radio.command('socket', 'bindEvents', id);
-
     $.ajaxPrefilter( (options, originalOptions) => {
 
       if (originalOptions.type === 'GET' || options.type === 'GET') {
@@ -74,6 +72,9 @@ export default Service.extend({
         options.data = JSON.stringify($.extend(JSON.parse(originalOptions.data), { access_token : token }));
       }
     });
+
+
+    Radio.command('socket', 'bindEvents', id);
   },
 
   isLoggedIn() {

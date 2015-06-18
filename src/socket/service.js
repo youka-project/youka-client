@@ -5,6 +5,7 @@ import ConfirmSitView from './confirmSit/layout-view';
 import WaitingView from './waiting/layout-view';
 import SittingView from './sitting/layout-view';
 
+import storage from '../users/storage'
 
 export default Service.extend({
   channelName: 'socket',
@@ -33,6 +34,14 @@ export default Service.extend({
     this.socket.on('sitConfirm', this.onSitConfirm.bind(this));
     this.socket.on('sitConfirmed', this.onSitConfirmed.bind(this));
     this.socket.on('sitLeave', this.onSitLeave.bind(this));
+
+    storage.findAll().then(() => {
+      storage.find(userId).then(user => {
+        user.fetch();
+        this.user = user;
+      });
+    });
+
     this.socketState = 'ready';
   },
 
@@ -157,6 +166,7 @@ export default Service.extend({
 
     this.socketState = 'waiting';
     this.waitingView = new WaitingView();
+    this.waitingView.model = this.user;
 
     // this.listenTo(this.sittingView, 'confirmSit', this.onUiConfirmSit);
     // this.listenTo(this.sittingView, 'discardSit', this.onUiDiscardSit);
