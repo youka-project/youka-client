@@ -33,18 +33,18 @@ table {
 }
 
 .btn-home {
-  background-color: @white;
-  color: @brand-primary;
   text-transform: uppercase;
   font-weight: 700;
   font-size: 16px;
   padding: 10px 0;
   width: 148px;
+  border: 2px solid @white;
+  color: @white;
+  background: none;
 
-  &.btn-home-inversed {
-    border: 2px solid @white;
-    color: @white;
-    background: none;
+  &:active {
+    color: @brand-primary;
+    background-color: @white;
   }
 }
 
