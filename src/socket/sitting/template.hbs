@@ -1,11 +1,47 @@
 <div class="socket-connect">
-	<div class="socket-connect--header">
-		Rencontre en cours...
-	</div>
-	<div class="socket-connect--main">
+	<div class="socket-connect--header header-big header-white">
+		Rencontre en cours
 
+		<div class="circles-container hidden-anim">
+			<div class="circle circle-1"></div>
+			<div class="circle circle-2"></div>
+			<div class="circle circle-3"></div>
+			<div class="circle-inner-text">1'43s</div>			
+		</div>
 	</div>
-	<div class="socket-connect--footer">
+	<div class="socket-connect--main main-big">
+		<div class="socket-link">
+			<div class="socket-meeting">
 
+				<div class="profile-picture profile-picture-medium" style="background-image: url({{img}})"></div>
+
+				<ul class="meeting-infos">
+					<li>
+						<b>{{name}}</b>
+					</li>
+					<li>
+						<b>{{age}} ans</b>
+					</li>
+					<li>
+						{{experience}} ans d'expérience
+					</li>
+					<li>
+						<b>{{position}}</b>
+					</li>
+				</ul>
+				<div class="white-title">
+					Nouvelle rencontre
+				</div>
+				<div class="black-title">
+					Félicitations !
+				</div>
+				<p>
+					Vous venez de faire connaissance avec <b>{{name}}</b>. Découvrez-en plus sur lui en consultant son profil. 
+				</p>
+				<div class="center">
+					<a href="#" class="big-white-button">Infos sur {{name}}</a>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>

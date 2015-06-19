@@ -73,7 +73,10 @@ export default Service.extend({
             // Both seats are connected
             if (data.full) {
 
-              this.openSittingModal();
+              storage.find(data.peerId).then(user => {
+                this.peer = user;
+                this.openSittingModal();
+              });
 
             } else {
 
@@ -89,11 +92,15 @@ export default Service.extend({
         });
       } 
 
+    // User has already confirmed
     } else if (this.socketState === 'waiting' && data.full) {
 
       this.closeWaitingModal(() => {
 
-        this.openSittingModal();
+        storage.find(data.userId).then(user => {
+          this.peer = user;
+          this.openSittingModal();
+        });
         
       });
     }
@@ -193,6 +200,7 @@ export default Service.extend({
 
     this.socketState = 'sitting';
     this.sittingView = new SittingView();
+    this.sittingView.model = this.peer;
 
     // this.listenTo(this.sittingView, 'confirmSit', this.onUiConfirmSit);
     // this.listenTo(this.sittingView, 'discardSit', this.onUiDiscardSit);

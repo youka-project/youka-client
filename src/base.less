@@ -32,6 +32,14 @@ table {
   }
 }
 
+body {
+  color: @black;
+}
+
+.center {
+  text-align: center;
+}
+
 .btn-home {
   text-transform: uppercase;
   font-weight: 700;
@@ -364,7 +372,7 @@ table {
   width: @circles-max-size;
   height: @circles-max-size;
   position: relative;
-  margin: auto;
+  margin: 24px auto 0;
 
 
   .circle {
@@ -411,6 +419,16 @@ table {
     height: 100%;
     line-height: @circles-max-size;
     font-size: @circles-max-size / 3;
+    text-align: center;
+    transition: all 0.7s ease-in-out;
+  }
+
+  .circle-inner-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: @circles-max-size;
+    font-size: @circles-max-size / 5;
     text-align: center;
     transition: all 0.7s ease-in-out;
   }

@@ -7,13 +7,15 @@ export default LayoutView.extend({
   template: template,
   className: 'socket-connect hidden-t',
 
-  triggers: {
-    'click .confirm-true': 'confirmSit',
-    'click .confirm-false': 'discardSit'
+  ui: {
+    circlesContainer: '.circles-container'
   },
 
   show() {
     this.$el.removeClass('hidden-t');
+    setTimeout(() => {
+      this.ui.circlesContainer.removeClass('hidden-anim');
+    }, 500);
   },
 
   hide() {

@@ -24,6 +24,14 @@
     text-transform: uppercase;
     font-size: 24px;
     font-weight: 700;
+
+    &.header-big {
+      height: 38%;
+    }
+
+    &.header-white {
+      background-image: url(assets/images/bg_palms.png);
+    }
   }
 
   &--main {
@@ -31,6 +39,10 @@
     width: 100%;
     height: 50%;
     padding: 32px;
+
+    &.main-big {
+      height: 62%;
+    }
 
     .socket-subtext {
       font-size: 20px;
@@ -116,4 +128,58 @@
     font-size: 48px;
     line-height: 96px;
   }
+}
+
+.socket-meeting {
+  text-align: left;
+
+  .profile-picture {
+    display: inline-block;
+    vertical-align: top;
+    border: 2px solid @white;
+    border-radius: 8px;
+  }
+
+  .meeting-infos {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    padding: 0 0 0 12px;
+    list-style: none;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  p {
+    font-size: 18px;
+    margin-bottom: 28px;
+  }
+}
+
+.white-title {
+  text-transform: uppercase;
+  color: @white;
+  font-size: 19px;
+  margin: 24px 0 16px;
+  display: inline-block;
+  border-bottom: 2px solid @black;
+}
+
+.black-title {
+  text-transform: uppercase;
+  color: @black;
+  font-weight: 700;
+  font-size: 19px;
+}
+
+.big-white-button {
+  text-transform: uppercase;
+  color: @white;
+  font-size: 19px;
+  border: 2px solid @white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  display: inline-block;
+  margin: auto;
+  text-align: center;
 }

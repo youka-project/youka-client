@@ -11,13 +11,7 @@ export default LayoutView.extend({
     circlesContainer: '.circles-container'
   },
 
-  triggers: {
-    'click .confirm-true': 'confirmSit',
-    'click .confirm-false': 'discardSit'
-  },
-
-  show(userId) {
-    console.log('model', this.model);
+  show() {
     this.$el.removeClass('hidden-t');
     setTimeout(() => {
       this.ui.circlesContainer.removeClass('hidden-anim');
