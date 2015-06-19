@@ -2,7 +2,9 @@
   <p>Bienvenue !</p>
   <img alt="Youka" src="assets/images/logo.png" class="logo"/>
   	{{#unless isLoggedIn}}
-		<form class="index__form form-vertical" role="form" autocomplete="false">
+		<form class="index__form form-vertical" role="form" autocomplete="off">
+		<input style="display:none">
+		<input type="password" style="display:none">
 			{{#if errors}}
 				<div class="alert alert-warning">
 				  <ul>

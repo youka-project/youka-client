@@ -8,7 +8,8 @@ export default LayoutView.extend({
   className: 'socket-connect hidden-t',
 
   ui: {
-    circlesContainer: '.circles-container'
+    circlesContainer: '.circles-container',
+    footer: '.socket-connect--footer'
   },
 
   show() {
@@ -16,6 +17,9 @@ export default LayoutView.extend({
     setTimeout(() => {
       this.ui.circlesContainer.removeClass('hidden-anim');
     }, 500);
+    setTimeout(() => {
+      this.ui.footer.removeClass('hidden-anim');
+    }, 1500);
   },
 
   hide() {

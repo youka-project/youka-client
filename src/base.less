@@ -285,8 +285,8 @@ body {
   }
 
   &.profile-picture-medium {
-    height: 96px;
-    width: 96px;
+    height: 82px;
+    width: 82px;
   }
 
   &.profile-picture-big {
@@ -367,13 +367,12 @@ body {
 }
 
 .circles-container {
-  @circles-max-size: 148px;
+  @circles-max-size: 132px;
   display: block;
   width: @circles-max-size;
   height: @circles-max-size;
   position: relative;
-  margin: 24px auto 0;
-
+  margin: auto;
 
   .circle {
     display: block;
@@ -431,6 +430,35 @@ body {
     font-size: @circles-max-size / 5;
     text-align: center;
     transition: all 0.7s ease-in-out;
+    text-transform: none;
+  }
+
+  .content-col-left {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: -50%;
+    display: table;
+  }
+
+  .content-col-right {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    right: -50%;
+    display: table;
+  }
+
+  .content-col-inner {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 28px;
+
+    .icon-label {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 12px;
+    }
   }
 
   &.hidden-anim {
