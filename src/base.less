@@ -50,7 +50,7 @@ body {
   color: @white;
   background: none;
 
-  &:active {
+  &:active, &:focus, &:hover {
     color: @brand-primary;
     background-color: @white;
   }
@@ -103,6 +103,12 @@ body {
 
   .content-header-pic {
     padding: 12px 0;
+
+    .profile-picture {
+      border-radius: 8px;
+      border: 2px solid @white;
+      margin-top: 16px;
+    }
   }
 
   .content-header-tabs {
@@ -227,8 +233,8 @@ body {
   .content-body-bar {
     background-color: @brand-inversed;
     color: @white;
-    height: 64px;
-    line-height: 64px;
+    height: 48px;
+    line-height: 48px;
     padding: 0 28px;
     white-space: nowrap;
 
@@ -280,8 +286,8 @@ body {
   background-size: cover;
   
   &.profile-picture-small {
-    height: 48px;
-    width: 48px;
+    height: 72px;
+    width: 72px;
   }
 
   &.profile-picture-medium {
@@ -290,8 +296,8 @@ body {
   }
 
   &.profile-picture-big {
-    height: 124px;
-    width: 124px;
+    height: 104px;
+    width: 104px;
   }
 }
 
