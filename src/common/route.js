@@ -17,6 +17,8 @@ export default Marionette.Object.extend({
     this._triggerMethod('before:enter', args);
     this._triggerMethod('before:fetch', args);
 
+    console.log('enter', args)
+
     return Promise.resolve(this.fetch(...args))
       .then(() => {
         this._triggerMethod('fetch', args);

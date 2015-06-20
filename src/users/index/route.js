@@ -1,6 +1,7 @@
 import Route from '../../common/route';
 import LayoutView from './layout-view';
 import storage from '../storage';
+import Radio from 'backbone.radio';
 
 export default Route.extend({
   initialize(options) {
@@ -22,5 +23,7 @@ export default Route.extend({
     });
 
     this.container.show(this.layoutView);
+
+    Radio.command('header', 'activate', { path: 'users' });
   }
 });

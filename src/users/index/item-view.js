@@ -12,10 +12,6 @@ export default ItemView.extend({
     };
   },
 
-  initialize() {
-    console.log(this.model);
-  },
-
   modelEvents: {
     'all': 'render'
   }

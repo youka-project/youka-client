@@ -5,6 +5,7 @@ import IndexRoute from './index/route';
 import CreateRoute from './create/route';
 import ShowRoute from './show/route';
 import EditRoute from './edit/route';
+import MeRoute from './me/route';
 
 export default Router.extend({
   initialize(options) {
@@ -19,21 +20,22 @@ export default Router.extend({
 
     Radio.command('header', 'add', {
       name: 'Profil',
-      path: 'users',
-      icon: 'profil',
+      path: 'users/me',
+      icon: 'team',
       type: 'primary'
     });
   },
 
   onBeforeEnter() {
-    Radio.command('header', 'activate', { path: 'users' });
+    
   },
 
   routes: {
     'users'          : 'index',
+    'users/me'       : 'me',
     'users/new'      : 'create',
     'users/:id'      : 'show',
-    'users/:id/edit' : 'edit'
+    'users/:id/edit' : 'edit',
   },
 
   index() {
@@ -56,6 +58,12 @@ export default Router.extend({
 
   edit() {
     return new EditRoute({
+      container: this.container
+    });
+  },
+
+  me() {
+    return new MeRoute({
       container: this.container
     });
   }
