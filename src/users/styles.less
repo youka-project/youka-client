@@ -18,6 +18,13 @@
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
     color: @black;
 
+    &.hide-met {
+      .met {
+        height: 0;
+        opacity: 0;
+      }
+    }
+
     .profile-picture {
       border-radius: 5px;
       border: 2px solid @brand-primary;
@@ -33,7 +40,9 @@
       border-radius: 0 0 5px 5px;
       color: @white;
       padding: 3px 0;
+      height: 26px;
       margin-top: 2px;
+      transition: all 0.5s ease-in-out;
     }
   }
 }

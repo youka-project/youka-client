@@ -10,6 +10,10 @@
   text-align: center;
   transition: all 0.3s ease-in-out;
 
+  &.socket-connect-bg-white {
+    background-image: url(assets/images/bg_palms.png);
+  }
+
   &.hidden-t {
     opacity: 0;
     transform: scale(0);
@@ -22,8 +26,9 @@
     position: relative;
     padding: 5% 24px;
     text-transform: uppercase;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
+    line-height: 64px;
 
     &.header-big {
       height: 38%;
@@ -54,9 +59,14 @@
       height: 62%;
     }
 
+    &.main-xl {
+      height: 75%;
+      padding-top: 0;
+    }
+
     .socket-subtext {
       font-size: 20px;
-      margin-top: 12px;
+      margin-top: 42px;
     }
 
     .secondary-message {
@@ -88,6 +98,11 @@
         margin-left: -32px;
       }
     }
+
+    p {
+      margin-top: 32px;
+      font-size: 16px;
+    }
   }
 
   &--footer {
@@ -104,6 +119,23 @@
     &.hidden-anim {
       transform: translateY(100%);
       opacity: 0;
+    }
+
+    &.footer-xs {
+      height: 10%;
+      padding: 0;
+      display: table;
+
+      .icon {
+        display: table-cell;
+        vertical-align: middle;
+        color: @white;
+        font-size: 32px;
+      }
+    }
+
+    &.footer-green {
+      background-color: @brand-primary;
     }
 
     a {
@@ -175,7 +207,7 @@
 
   p {
     font-size: 14px;
-    margin-bottom: 18px;
+    margin: 12px 0 28px 0;
   }
 }
 
@@ -205,4 +237,63 @@
   display: inline-block;
   margin: auto;
   text-align: center;
+}
+
+.big-green-button {
+  text-transform: uppercase;
+  color: @brand-primary;
+  font-size: 17px;
+  border: 2px solid @brand-primary;
+  background-color: @white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  display: inline-block;
+  margin: 32px auto;
+  text-align: center;
+}
+
+.socket-stats {
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+
+  .socket-stats-item {
+      display: table-cell;
+      margin: auto;
+      vertical-align: top;
+
+    .socket-stat {
+      height: 62px;
+      background-image: url(assets/images/rond_plein.png);
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+
+      .icon {
+        line-height: 54px;
+        font-size: 22px;
+        color: @white;
+      }
+    }
+
+    .socket-stat-title {
+      text-transform: uppercase;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .socket-stat-subtitle {
+      font-size: 17px;
+      font-weight: 700;
+      color: @brand-inversed;
+    }
+  }
+}
+
+.user-container {
+  height: 150px;
+
+  .users__item {
+    margin: 0;
+  }
 }

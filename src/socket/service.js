@@ -4,6 +4,7 @@ import $ from 'jquery';
 import ConfirmSitView from './confirmSit/layout-view';
 import WaitingView from './waiting/layout-view';
 import SittingView from './sitting/layout-view';
+import EndingView from './ending/layout-view';
 
 import storage from '../users/storage'
 
@@ -124,21 +125,23 @@ export default Service.extend({
 
     } else if (this.socketState === 'sitting') {
 
-      if (data.seat === this.currentSeat) {
+      // if (data.seat === this.currentSeat) {
 
-        this.closeSittingModal();
-        this.currentSeat = null;
-        this.socketState = 'ready';
+      this.closeSittingModal(() => {
+        this.openEndingModal();
+      });
+      // this.currentSeat = null;
+      
 
-      } else {
+      // } else {
 
-        this.closeSittingModal(() => {
+      //   this.closeSittingModal(() => {
 
-          this.openWaitingModal();
+      //     this.openWaitingModal();
 
-        });
+      //   });
 
-      }
+      // }
     }
   },
 
@@ -215,6 +218,33 @@ export default Service.extend({
 
   closeSittingModal(done) {
     this.sittingView.hide();
+    setTimeout(() => {
+      this.container.empty();
+      if (done) {
+        done();
+      }
+    }, 300);
+  },
+
+  openEndingModal() {
+
+    this.socketState = 'ending';
+    this.endingView = new EndingView();
+    this.endingView.model = this.peer;
+
+    // this.listenTo(this.endingView, 'confirmSit', this.onUiConfirmSit);
+    // this.listenTo(this.endingView, 'discardSit', this.onUiDiscardSit);
+
+    this.container.show(this.endingView);
+
+    setTimeout(() => {
+      this.endingView.show();
+    }, 100);
+
+  },
+
+  closeEndingModal(done) {
+    this.endingView.hide();
     setTimeout(() => {
       this.container.empty();
       if (done) {
