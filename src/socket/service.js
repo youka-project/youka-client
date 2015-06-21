@@ -205,9 +205,6 @@ export default Service.extend({
     this.sittingView = new SittingView();
     this.sittingView.model = this.peer;
 
-    // this.listenTo(this.sittingView, 'confirmSit', this.onUiConfirmSit);
-    // this.listenTo(this.sittingView, 'discardSit', this.onUiDiscardSit);
-
     this.container.show(this.sittingView);
 
     setTimeout(() => {
@@ -232,9 +229,8 @@ export default Service.extend({
     this.endingView = new EndingView();
     this.endingView.model = this.peer;
 
-    // this.listenTo(this.endingView, 'confirmSit', this.onUiConfirmSit);
-    // this.listenTo(this.endingView, 'discardSit', this.onUiDiscardSit);
-
+    this.listenTo(this.endingView, 'closeModal', this.onUiCloseSittingModal);
+    
     this.container.show(this.endingView);
 
     setTimeout(() => {
@@ -268,6 +264,13 @@ export default Service.extend({
     console.log('onUiDiscardSit');
     this.socketState = 'ready';
     this.closeConfirmSitModal();
+    this.currentSeat = null;
+  },
+
+  onUiCloseSittingModal() {
+    console.log('onUiCloseSittingModal')
+    this.socketState = 'ready';
+    this.closeSittingModal();
     this.currentSeat = null;
   }
 

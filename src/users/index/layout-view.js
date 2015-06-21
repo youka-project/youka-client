@@ -13,7 +13,7 @@ export default LayoutView.extend({
   },
 
   initialize(options) {
-    this.state = { start: 0, limit: 9 };
+    this.state = { start: 0, limit: 100 };
     this.state.start = (options.page - 1) * this.state.limit;
   },
 

@@ -12,6 +12,10 @@ export default LayoutView.extend({
     footer: '.socket-connect--footer'
   },
 
+  triggers: {
+    'click .socket-connect--footer': 'closeModal',
+  },
+
   show() {
     this.$el.removeClass('hidden-t');
     setTimeout(() => {
