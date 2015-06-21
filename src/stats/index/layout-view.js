@@ -5,6 +5,9 @@ import Chart from 'chart.js';
 export default ItemView.extend({
 	template: template,
 	className: 'fullpage fixed bg',
+	chartOptions: {
+		scaleShowLabels: false
+	},
 
 	ui: {
 		titleBar: '.bar-title',
@@ -26,11 +29,45 @@ export default ItemView.extend({
 	},
 
 	onShow() {
-		this.showWaterTab();
+		this.showWaterTab();		
+	},
 
-		const chartOptions = {
-			scaleShowLabels: false
-		};
+	generateFakeData() {
+		this.chartLive.addData([Date.now() + Math.random() * 4000 - 2000], '');
+		if (this.chartLive.datasets[0].points.length > 15) {
+			this.chartLive.removeData();
+		} 
+	},
+
+	destroyCharts() {
+		if (this.chart1) {
+			this.chart1.destroy();
+		}
+		console.log(this.chart1);
+		if (this.chart2) {
+			this.chart2.destroy();
+		}
+		console.log(this.chart2);
+		if (this.chartLive) {
+			this.chartLive.destroy();
+		}
+		console.log(this.chartLive);
+	},
+
+	showWaterTab() {
+		this.destroyCharts();
+		this.ui.titleBar.text('humidité');
+
+		this.ui.tabs
+		  .removeClass('pos-tab-2')
+		  .removeClass('pos-tab-3')
+		  .removeClass('pos-tab-4')
+		  .addClass('pos-tab-1');
+
+		this.ui.waterButton.addClass('active');
+		this.ui.lightButton.removeClass('active');
+		this.ui.liveButton.removeClass('active');
+		this.ui.plantButton.removeClass('active');
 
 		const chart1Data = {
 		    labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
@@ -46,6 +83,23 @@ export default ItemView.extend({
 		        }
 		    ]
 		};
+		this.chart1 = new Chart(this.ui.chart1.get(0).getContext('2d')).Line(chart1Data, this.chartOptions);
+	},
+
+	showLightTab() {
+		this.destroyCharts();
+		this.ui.titleBar.text('éclairage');
+
+		this.ui.tabs
+		  .removeClass('pos-tab-1')
+		  .removeClass('pos-tab-3')
+		  .removeClass('pos-tab-4')
+		  .addClass('pos-tab-2');
+
+		this.ui.waterButton.removeClass('active');
+		this.ui.lightButton.addClass('active');
+		this.ui.liveButton.removeClass('active');
+		this.ui.plantButton.removeClass('active');
 
 		const chart2Data = {
 		    labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
@@ -61,6 +115,25 @@ export default ItemView.extend({
 		        }
 		    ]
 		};
+		this.chart2 = new Chart(this.ui.chart2.get(0).getContext('2d')).Line(chart2Data, this.chartOptions);
+	},
+
+	showLiveTab() {
+		this.destroyCharts();
+		this.ui.titleBar.text('live');
+
+		this.ui.tabs
+		  .removeClass('pos-tab-1')
+		  .removeClass('pos-tab-2')
+		  .removeClass('pos-tab-4')
+		  .addClass('pos-tab-3');
+
+		this.ui.waterButton.removeClass('active');
+		this.ui.lightButton.removeClass('active');
+		this.ui.liveButton.addClass('active');
+		this.ui.plantButton.removeClass('active');
+
+		let lastDate = Date.now() - 15 * 2000;
 
 		const chartLiveData = {
 		    labels: [],
@@ -77,73 +150,17 @@ export default ItemView.extend({
 		    ]
 		};
 		
-		let lastDate = Date.now() - 15 * 2000;
-		
 		for (let i = 0; i < 15; i++) {
 			lastDate += 2000;
 			chartLiveData.datasets[0].data.push(lastDate + Math.random() * 4000 - 2000);
 			chartLiveData.labels.push('');
 		}
 		
-		this.chart1 = new Chart(this.ui.chart1.get(0).getContext('2d')).Line(chart1Data, chartOptions);
-		this.chart2 = new Chart(this.ui.chart2.get(0).getContext('2d')).Line(chart2Data, chartOptions);
-		this.chartLive = new Chart(this.ui.chartLive.get(0).getContext('2d')).Line(chartLiveData, chartOptions);
+		this.chartLive = new Chart(this.ui.chartLive.get(0).getContext('2d')).Line(chartLiveData, this.chartOptions);
 
 		this.chartsInterval = setInterval(() => {
 			this.generateFakeData();
 		}, 2000);
-	},
-
-	generateFakeData() {
-		this.chartLive.addData([Date.now() + Math.random() * 4000 - 2000], '');
-		if (this.chartLive.datasets[0].points.length > 15) {
-			this.chartLive.removeData();
-		} 
-	},
-
-	showWaterTab() {
-		this.ui.titleBar.text('humidité');
-
-		this.ui.tabs
-		  .removeClass('pos-tab-2')
-		  .removeClass('pos-tab-3')
-		  .removeClass('pos-tab-4')
-		  .addClass('pos-tab-1');
-
-		this.ui.waterButton.addClass('active');
-		this.ui.lightButton.removeClass('active');
-		this.ui.liveButton.removeClass('active');
-		this.ui.plantButton.removeClass('active');
-	},
-
-	showLightTab() {
-		this.ui.titleBar.text('éclairage');
-
-		this.ui.tabs
-		  .removeClass('pos-tab-1')
-		  .removeClass('pos-tab-3')
-		  .removeClass('pos-tab-4')
-		  .addClass('pos-tab-2');
-
-		this.ui.waterButton.removeClass('active');
-		this.ui.lightButton.addClass('active');
-		this.ui.liveButton.removeClass('active');
-		this.ui.plantButton.removeClass('active');
-	},
-
-	showLiveTab() {
-		this.ui.titleBar.text('live');
-
-		this.ui.tabs
-		  .removeClass('pos-tab-1')
-		  .removeClass('pos-tab-2')
-		  .removeClass('pos-tab-4')
-		  .addClass('pos-tab-3');
-
-		this.ui.waterButton.removeClass('active');
-		this.ui.lightButton.removeClass('active');
-		this.ui.liveButton.addClass('active');
-		this.ui.plantButton.removeClass('active');
 	},
 
 	showPlantTab() {
