@@ -21,7 +21,7 @@ export default Router.extend({
     Radio.command('header', 'add', {
       name: 'Profil',
       path: 'users/me',
-      icon: 'team',
+      icon: 'profil',
       type: 'primary'
     });
   },

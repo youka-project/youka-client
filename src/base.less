@@ -139,8 +139,8 @@ body {
 
       > i {
         color: @brand-primary;
-        line-height: 55px;
-        font-size: 22px;
+        line-height: 60px;
+        font-size: 26px;
         transition: all 0.3s ease-in-out; 
       }
     }
@@ -272,6 +272,10 @@ body {
   width: 100%;
   padding: 12px 24px;
   table-layout: fixed;
+
+  &.subtabs-container-small {
+    padding: 12px 66px;
+  }
 
   .subtab {
     display: table-cell;
@@ -482,7 +486,7 @@ body {
   }
 
   &.hidden-anim {
-    .circle, .circle-inner-icon {
+    .circle, .circle-inner-icon, .circle-inner-text {
       opacity: 0;
       transform: scale(0);
       animation: none;

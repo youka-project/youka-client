@@ -43,15 +43,14 @@ export default ItemView.extend({
 		if (this.chart1) {
 			this.chart1.destroy();
 		}
-		console.log(this.chart1);
 		if (this.chart2) {
 			this.chart2.destroy();
 		}
-		console.log(this.chart2);
 		if (this.chartLive) {
 			this.chartLive.destroy();
 		}
-		console.log(this.chartLive);
+		clearInterval(this.chartsInterval);
+		
 	},
 
 	showWaterTab() {
