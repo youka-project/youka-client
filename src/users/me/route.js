@@ -21,6 +21,5 @@ export default Route.extend({
     });
     this.container.show(this.view);
     Radio.command('header', 'activate', { path: 'users/me' });
-    console.log('render ME')
   }
 });

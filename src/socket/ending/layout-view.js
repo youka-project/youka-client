@@ -14,6 +14,7 @@ export default LayoutView.extend({
 
   triggers: {
     'click .socket-connect--footer': 'closeModal',
+    'click .big-green-button': 'closeModal',
   },
 
   show() {

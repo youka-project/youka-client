@@ -12,6 +12,14 @@ export default ItemView.extend({
     };
   },
 
+  templateHelpers() {
+    return {
+      isMet() {
+        return !(this.name === 'Valentin' || this.name === 'Julia' || this.name === 'Hugo' || this.name === 'Victor' || this.name === 'Aurélie');
+      }
+    }
+  },
+
   modelEvents: {
     'all': 'render'
   }

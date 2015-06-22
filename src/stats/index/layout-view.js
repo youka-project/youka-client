@@ -79,12 +79,12 @@ export default ItemView.extend({
 		    labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 		    datasets: [
 		        {
-		            fillColor: "rgba(118, 223, 180, 0.2)",
-		            strokeColor: "#76DFB4",
-		            pointColor: "#76DFB4",
-		            pointStrokeColor: "#fff",
-		            pointHighlightFill: "#fff",
-		            pointHighlightStroke: "rgba(220,220,220,1)",
+		            fillColor: 'rgba(118, 223, 180, 0.2)',
+		            strokeColor: '#76DFB4',
+		            pointColor: '#76DFB4',
+		            pointStrokeColor: '#fff',
+		            pointHighlightFill: '#fff',
+		            pointHighlightStroke: 'rgba(220,220,220,1)',
 		            data: [25, 27, 36, 56, 47, 62, 64, 66, 82, 79, 70, 65, 58, 60, 61, 45]
 		        }
 		    ]
@@ -111,12 +111,12 @@ export default ItemView.extend({
 		    labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 		    datasets: [
 		        {
-		            fillColor: "rgba(118, 223, 180, 0.2)",
-		            strokeColor: "#76DFB4",
-		            pointColor: "#76DFB4",
-		            pointStrokeColor: "#fff",
-		            pointHighlightFill: "#fff",
-		            pointHighlightStroke: "rgba(220,220,220,1)",
+		            fillColor: 'rgba(118, 223, 180, 0.2)',
+		            strokeColor: '#76DFB4',
+		            pointColor: '#76DFB4',
+		            pointStrokeColor: '#fff',
+		            pointHighlightFill: '#fff',
+		            pointHighlightStroke: 'rgba(220,220,220,1)',
 		            data: [47, 62, 64, 66, 48, 55, 79, 70, 65, 58, 56, 68, 82, 60, 61, 45]
 		        }
 		    ]
@@ -145,12 +145,12 @@ export default ItemView.extend({
 		    labels: [],
 		    datasets: [
 		        {
-		            fillColor: "rgba(118, 223, 180, 0.2)",
-		            strokeColor: "#76DFB4",
-		            pointColor: "#76DFB4",
-		            pointStrokeColor: "#fff",
-		            pointHighlightFill: "#fff",
-		            pointHighlightStroke: "rgba(220,220,220,1)",
+		            fillColor: 'rgba(118, 223, 180, 0.2)',
+		            strokeColor: '#76DFB4',
+		            pointColor: '#76DFB4',
+		            pointStrokeColor: '#fff',
+		            pointHighlightFill: '#fff',
+		            pointHighlightStroke: 'rgba(220,220,220,1)',
 		            data: []
 		        }
 		    ]
@@ -193,12 +193,12 @@ export default ItemView.extend({
 		    labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 		    datasets: [
 		        {
-		            fillColor: "rgba(118, 223, 180, 0.2)",
-		            strokeColor: "#76DFB4",
-		            pointColor: "#76DFB4",
-		            pointStrokeColor: "#fff",
-		            pointHighlightFill: "#fff",
-		            pointHighlightStroke: "rgba(220,220,220,1)",
+		            fillColor: 'rgba(118, 223, 180, 0.2)',
+		            strokeColor: '#76DFB4',
+		            pointColor: '#76DFB4',
+		            pointStrokeColor: '#fff',
+		            pointHighlightFill: '#fff',
+		            pointHighlightStroke: 'rgba(220,220,220,1)',
 		            data: [25 * Math.random() * 4 - 2, 27 * Math.random() * 4 - 2, 36 * Math.random() * 4 - 2, 56 * Math.random() * 4 - 2, 47 * Math.random() * 4 - 2, 62 * Math.random() * 4 - 2, 64 * Math.random() * 4 - 2, 66 * Math.random() * 4 - 2, 82 * Math.random() * 4 - 2, 79 * Math.random() * 4 - 2, 70 * Math.random() * 4 - 2, 65 * Math.random() * 4 - 2, 58 * Math.random() * 4 - 2, 60 * Math.random() * 4 - 2, 61 * Math.random() * 4 - 2, 45 * Math.random() * 4 - 2]
 		        }
 		    ]
@@ -215,12 +215,12 @@ export default ItemView.extend({
 		    labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 		    datasets: [
 		        {
-		            fillColor: "rgba(118, 223, 180, 0.2)",
-		            strokeColor: "#76DFB4",
-		            pointColor: "#76DFB4",
-		            pointStrokeColor: "#fff",
-		            pointHighlightFill: "#fff",
-		            pointHighlightStroke: "rgba(220,220,220,1)",
+		            fillColor: 'rgba(118, 223, 180, 0.2)',
+		            strokeColor: '#76DFB4',
+		            pointColor: '#76DFB4',
+		            pointStrokeColor: '#fff',
+		            pointHighlightFill: '#fff',
+		            pointHighlightStroke: 'rgba(220,220,220,1)',
 		            data: [47 * Math.random() * 4 - 2, 62 * Math.random() * 4 - 2, 64 * Math.random() * 4 - 2, 66 * Math.random() * 4 - 2, 48 * Math.random() * 4 - 2, 55 * Math.random() * 4 - 2, 79 * Math.random() * 4 - 2, 70 * Math.random() * 4 - 2, 65 * Math.random() * 4 - 2, 58 * Math.random() * 4 - 2, 56 * Math.random() * 4 - 2, 68 * Math.random() * 4 - 2, 82 * Math.random() * 4 - 2, 60 * Math.random() * 4 - 2, 61 * Math.random() * 4 - 2, 45 * Math.random() * 4 - 2]
 		        }
 		    ]
@@ -239,12 +239,12 @@ export default ItemView.extend({
 		    labels: [],
 		    datasets: [
 		        {
-		            fillColor: "rgba(118, 223, 180, 0.2)",
-		            strokeColor: "#76DFB4",
-		            pointColor: "#76DFB4",
-		            pointStrokeColor: "#fff",
-		            pointHighlightFill: "#fff",
-		            pointHighlightStroke: "rgba(220,220,220,1)",
+		            fillColor: 'rgba(118, 223, 180, 0.2)',
+		            strokeColor: '#76DFB4',
+		            pointColor: '#76DFB4',
+		            pointStrokeColor: '#fff',
+		            pointHighlightFill: '#fff',
+		            pointHighlightStroke: 'rgba(220,220,220,1)',
 		            data: []
 		        }
 		    ]

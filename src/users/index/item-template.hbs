@@ -1,3 +1,7 @@
-<div class="profile-picture profile-picture-small" style="background-image: url({{img}})"></div>
+<div class="profile-picture profile-picture-small not-met" style="background-image: url({{img}})"></div>
 <div class="name">{{name}}</div>
-<div class="met">Rencontré <i class="icon-ok"></i></div>
+{{#if isMet}}
+	<div class="met">Rencontré <i class="icon-ok"></i></div>
+{{else}}
+	<div class="met not-met">Non rencontré</div>
+{{/if}}

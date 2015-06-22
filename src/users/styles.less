@@ -28,6 +28,10 @@
     .profile-picture {
       border-radius: 5px;
       border: 2px solid @brand-primary;
+
+      &.not-met {
+        border-color: @brand-inversed;
+      }
     }
 
     .name {
@@ -41,8 +45,13 @@
       color: @white;
       padding: 3px 0;
       height: 26px;
+      font-size: 14px;
       margin-top: 2px;
       transition: all 0.5s ease-in-out;
+
+      &.not-met {
+        background-color: @brand-inversed;
+      }
     }
   }
 }

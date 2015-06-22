@@ -3,6 +3,7 @@ import LayoutView from '../../common/layout-view';
 import CollectionView from './collection-view';
 import Collection from '../../common/collection';
 import template from './layout-template.hbs';
+import Radio from 'backbone.radio';
 
 export default LayoutView.extend({
   template: template,
@@ -18,9 +19,11 @@ export default LayoutView.extend({
   },
 
   onBeforeRender() {
+    const userId = Radio.request('auth', 'getUserId');
     var filtered = _.chain(this.collection.models)
-      .drop(this.state.start)
-      .take(this.state.limit)
+      .filter((model) => {
+        return (model.id !== userId);
+      })
       .value();
 
     this.filteredCollection = new Collection(filtered);

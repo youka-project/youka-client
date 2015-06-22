@@ -32,7 +32,7 @@ export default LayoutView.extend({
 
   tick() {
     this.timerSec++;
-    let min = Math.floor(this.timerSec / 60) 
+    let min = Math.floor(this.timerSec / 60);
     let sec = this.timerSec % 60;
     sec = sec < 10 ? '0' + sec : sec;
     this.ui.timer.text(min + ':' +  sec);
