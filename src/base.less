@@ -186,7 +186,7 @@ body {
   background-image: url(assets/images/bg_palms.png);
   background-size: contain;
   background-position: 50% 50%;
-  padding-bottom: @navbar-height + 48px;
+  padding-bottom: @navbar-height + 24px;
 
   &.no-bg {
     background: none;
@@ -433,6 +433,18 @@ body {
       left: (100% - @circle-3-size) / 2;
       transition: all 0.7s ease-in-out;
       animation: pulse 1s infinite ease-in-out;
+    }
+
+    &.circle-4 {
+      @circle-4-size: 85%;
+      border: 2px solid fade(@brand-primary, 50%);
+      width: @circle-4-size;
+      height: @circle-4-size;
+      border-radius: 50%;
+      top: (100% - @circle-4-size) / 2;
+      left: (100% - @circle-4-size) / 2;
+      transition: all 0.5s ease-in-out;
+      animation: pulse 2s infinite ease-in-out;
     }
   }
 
