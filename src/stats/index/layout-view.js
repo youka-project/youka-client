@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import ItemView from '../../common/item-view';
 import template from './layout-template.hbs';
 import Chart from 'chart.js';
@@ -16,6 +17,9 @@ export default ItemView.extend({
 		lightButton: '.light-button',
 		liveButton:  '.live-button',
 		plantButton: '.plant-button',
+		waterSubtabs: '.panel-water .subtab-binded',
+		lightSubtabs: '.panel-light .subtab-binded',
+		liveSubtabs: '.panel-live .subtab-binded',
 		chart1: '#chart1',
 		chart2: '#chart2',
 		chartLive: '#chart-live',
@@ -26,10 +30,13 @@ export default ItemView.extend({
 		'click @ui.lightButton': 'showLightTab',
 		'click @ui.liveButton':  'showLiveTab',
 		'click @ui.plantButton': 'showPlantTab',
+		'click @ui.waterSubtabs': 'onWaterSubtabClick',
+		'click @ui.lightSubtabs': 'onLightSubtabClick',
+		'click @ui.liveSubtabs': 'onLiveSubtabClick',
 	},
 
 	onShow() {
-		this.showWaterTab();		
+		this.showWaterTab();
 	},
 
 	generateFakeData() {
@@ -175,5 +182,84 @@ export default ItemView.extend({
 		this.ui.lightButton.removeClass('active');
 		this.ui.liveButton.removeClass('active');
 		this.ui.plantButton.addClass('active');
+	},
+
+	onWaterSubtabClick(event) {
+		this.ui.waterSubtabs.removeClass('active');
+		$(event.target).addClass('active');
+		this.destroyCharts();
+
+		const chart1Data = {
+		    labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+		    datasets: [
+		        {
+		            fillColor: "rgba(118, 223, 180, 0.2)",
+		            strokeColor: "#76DFB4",
+		            pointColor: "#76DFB4",
+		            pointStrokeColor: "#fff",
+		            pointHighlightFill: "#fff",
+		            pointHighlightStroke: "rgba(220,220,220,1)",
+		            data: [25 * Math.random() * 4 - 2, 27 * Math.random() * 4 - 2, 36 * Math.random() * 4 - 2, 56 * Math.random() * 4 - 2, 47 * Math.random() * 4 - 2, 62 * Math.random() * 4 - 2, 64 * Math.random() * 4 - 2, 66 * Math.random() * 4 - 2, 82 * Math.random() * 4 - 2, 79 * Math.random() * 4 - 2, 70 * Math.random() * 4 - 2, 65 * Math.random() * 4 - 2, 58 * Math.random() * 4 - 2, 60 * Math.random() * 4 - 2, 61 * Math.random() * 4 - 2, 45 * Math.random() * 4 - 2]
+		        }
+		    ]
+		};
+		this.chart1 = new Chart(this.ui.chart1.get(0).getContext('2d')).Line(chart1Data, this.chartOptions);
+	},
+
+	onLightSubtabClick(event) {
+		this.ui.lightSubtabs.removeClass('active');
+		$(event.target).addClass('active');
+		this.destroyCharts();
+
+		const chart2Data = {
+		    labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+		    datasets: [
+		        {
+		            fillColor: "rgba(118, 223, 180, 0.2)",
+		            strokeColor: "#76DFB4",
+		            pointColor: "#76DFB4",
+		            pointStrokeColor: "#fff",
+		            pointHighlightFill: "#fff",
+		            pointHighlightStroke: "rgba(220,220,220,1)",
+		            data: [47 * Math.random() * 4 - 2, 62 * Math.random() * 4 - 2, 64 * Math.random() * 4 - 2, 66 * Math.random() * 4 - 2, 48 * Math.random() * 4 - 2, 55 * Math.random() * 4 - 2, 79 * Math.random() * 4 - 2, 70 * Math.random() * 4 - 2, 65 * Math.random() * 4 - 2, 58 * Math.random() * 4 - 2, 56 * Math.random() * 4 - 2, 68 * Math.random() * 4 - 2, 82 * Math.random() * 4 - 2, 60 * Math.random() * 4 - 2, 61 * Math.random() * 4 - 2, 45 * Math.random() * 4 - 2]
+		        }
+		    ]
+		};
+		this.chart2 = new Chart(this.ui.chart2.get(0).getContext('2d')).Line(chart2Data, this.chartOptions);
+	},
+
+	onLiveSubtabClick(event) {
+		this.ui.liveSubtabs.removeClass('active');
+		$(event.target).addClass('active');
+		this.destroyCharts();
+
+		let lastDate = Date.now() - 15 * 2000;
+
+		const chartLiveData = {
+		    labels: [],
+		    datasets: [
+		        {
+		            fillColor: "rgba(118, 223, 180, 0.2)",
+		            strokeColor: "#76DFB4",
+		            pointColor: "#76DFB4",
+		            pointStrokeColor: "#fff",
+		            pointHighlightFill: "#fff",
+		            pointHighlightStroke: "rgba(220,220,220,1)",
+		            data: []
+		        }
+		    ]
+		};
+		
+		for (let i = 0; i < 15; i++) {
+			lastDate += 2000;
+			chartLiveData.datasets[0].data.push(lastDate + Math.random() * 10000 - 22000);
+			chartLiveData.labels.push('');
+		}
+		
+		this.chartLive = new Chart(this.ui.chartLive.get(0).getContext('2d')).Line(chartLiveData, this.chartOptions);
+
+		this.chartsInterval = setInterval(() => {
+			this.generateFakeData();
+		}, 2000);
 	}
 });
