@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <title>Youka</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <style>
+
+  a {
+    display: block;
+    width: 100%;
+    padding: 24px;
+    text-align: center;
+    background-color: rgb(157, 255, 157);
+    font-size: 24px;
+    margin-bottom: 32px;
+  }
+
+  </style>
+
+</head>
+<body>
+  <a href="#" class="seat1">SEAT 1 - SIT</a>
+  <a href="#" class="seat1-leave">SEAT 1 - LEAVE</a>
+  <a href="#" class="seat2">SEAT 2 - SIT</a>
+  <a href="#" class="seat2-leave">SEAT 2 - LEAVE</a>
+  <a href="#" class="lamp">LAMP ON</a>
+  <a href="#" class="lamp-off">LAMP OFF</a>
+  <a href="#" class="pump">PUMP ON</a>
+  <a href="#" class="pump-off">PUMP OFF</a>
+
+ <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+ <script>
+$(function() {
+
+  $('.seat1').on('click', function() {
+    $.getJSON('/debug/seat/1', function(data) {
+      $('.seat1').text('SEAT 1 - SIT: ' + data.status);
+    });
+  });
+
+  $('.seat1-leave').on('click', function() {
+    $.getJSON('/debug/seat/1/leave', function(data) {
+      $('.seat1-leave').text('SEAT 1 - LEAVE: ' + data.status);
+    });
+  });
+
+  $('.seat2').on('click', function() {
+    $.getJSON('/debug/seat/2', function(data) {
+      $('.seat2').text('SEAT 2 - SIT: ' + data.status);
+    });
+  });
+
+  $('.seat2-leave').on('click', function() {
+    $.getJSON('/debug/seat/2/leave', function(data) {
+      $('.seat2-leave').text('SEAT 2 - LEAVE: ' + data.status);
+    });
+  });
+
+  $('.lamp').on('click', function() {
+    $.getJSON('/debug/lampOn', function(data) {
+      $('.lamp').text('LAMP ON: ' + data.status);
+    });
+  });
+
+  $('.lamp-off').on('click', function() {
+    $.getJSON('/debug/lampOff', function(data) {
+      $('.lamp-off').text('LAMP OFF: ' + data.status);
+    });
+  });
+
+  $('.pump').on('click', function() {
+    $.getJSON('/debug/pumpOn', function(data) {
+      $('.pump').text('PUMP ON: ' + data.status);
+    });
+  });
+
+  $('.pump-off').on('click', function() {
+    $.getJSON('/debug/pumpOff', function(data) {
+      $('.pump-off').text('PUMP OFF: ' + data.status);
+    });
+  });
+
+});
+
+ </script>
+
+</body>
+</html>
